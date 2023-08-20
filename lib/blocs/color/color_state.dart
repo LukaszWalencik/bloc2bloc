@@ -1,10 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'color_bloc.dart';
 
-sealed class ColorState extends Equatable {
-  const ColorState();
-  
-  @override
-  List<Object> get props => [];
-}
+class ColorState extends Equatable {
+  final Color color;
+  ColorState(this.color);
 
-final class ColorInitial extends ColorState {}
+  factory ColorState.initial() {
+    return ColorState(Colors.red);
+  }
+  @override
+  List<Object> get props => [color];
+
+  @override
+  bool get stringify => true;
+
+  ColorState copyWith({
+    Color? color,
+  }) {
+    return ColorState(
+      color ?? this.color,
+    );
+  }
+}
