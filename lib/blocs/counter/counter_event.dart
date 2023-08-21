@@ -6,3 +6,5 @@ sealed class CounterEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class ChangeCounterEvent extends CounterEvent {}
