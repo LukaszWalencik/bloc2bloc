@@ -24,6 +24,7 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
         incrementSize = 100;
       } else if (colorState.color == Colors.black) {
         incrementSize = -100;
+        add(ChangeCounterEvent());
       }
     });
 
